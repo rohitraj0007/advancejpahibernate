@@ -1,0 +1,52 @@
+ACID isolation:-
+
+Read uncommitted--solves nothing(Dirty read,Non Repeatable read, Phanthom Read)
+Read Committed--solves only Dirty read
+Repeatable Read--solves both dirty and non repeatable read
+Serializable --solves all
+
+Hard Delete vs Soft delete
+
+
+*JPA is only good for mostly curd operations , not good for batch based or stored procedure or big queries.
+*in toString don't print everything if you are using lazy loading.
+
+
+*** performance tuning***
+First enable and monitor stats for one environment then tune it.
+We should forget about small efficiencies, say about 97% of the time premature optimization is the root of evil --Donald flintch
+
+
+Indexes:--
+*******************
+Add the right indexes on the database
+Example:- if a table is often search by a column which is not id then create index on that
+
+Eager and lazy fetching:---
+*****************************
+use Lazy fetching mostly
+All *ToOne mappings are eager and all *ToMany are lazy
+
+
+
+Use Appropriate caching::----
+******************************
+If there are lot of entity is saved in first level cache then that will make it slow too.
+Always remember first level cache is meant for a single transaction.If it is not necessary dont make a transaction big.
+
+Data which are mostly static and can be shared between different transactions we should use second level cache. Like dropdown
+We should go through all the entity to identify good candidates for second level cache.
+
+
+using tostring-----
+********************
+in case of lazy fetch use to string appropriately
+
+N+1 Problem-------
+********************
+if there are n relations to one recored there will be N+1 query fired in get call, so solution is:-
+a. make it lazy fetch
+b. use load graph
+c. join fetch
+
+

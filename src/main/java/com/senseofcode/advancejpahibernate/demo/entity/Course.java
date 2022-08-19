@@ -2,6 +2,7 @@ package com.senseofcode.advancejpahibernate.demo.entity;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +21,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 		@NamedQuery(name = "get_one", query = "select c from Course c where c.id =:id")
 		}
 )
+@Cacheable//by default true
 public class Course {
 	@Id
 	@GeneratedValue

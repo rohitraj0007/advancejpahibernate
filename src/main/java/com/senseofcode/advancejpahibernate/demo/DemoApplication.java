@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.senseofcode.advancejpahibernate.demo.entity.Course;
 import com.senseofcode.advancejpahibernate.demo.repository.CourseRepository;
+import com.senseofcode.advancejpahibernate.demo.repository.StudentRepository;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{
@@ -16,6 +17,8 @@ public class DemoApplication implements CommandLineRunner{
 	private Logger logger =LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	private CourseRepository courseRepository;
+	@Autowired
+	private StudentRepository studentRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
@@ -25,7 +28,7 @@ public class DemoApplication implements CommandLineRunner{
 		logger.info(courseRepository.findById(2001L).toString());
 		courseRepository.deleteById(2001L);
 		logger.info(courseRepository.save(new Course("Java")).toString());
-		
+		studentRepository.saveStudentWithPassport();
 	}
 	
 

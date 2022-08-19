@@ -1,0 +1,41 @@
+@SpringBootApplication   //import org.springframework.boot.autoconfigure.SpringBootApplication;
+@Autowired  //org.springframework.beans.factory.annotation.Autowired
+@Override   //java.lang.Override
+@EnableAutoconfiguration  //org.springframework.boot.autoconfigure.EnableAutoConfiguration
+@ComponentScan  //org.springframework.context.annotation.ComponentScan
+
+
+
+@SpringBootTest   //org.springframework.boot.test.context.SpringBootTest
+@Test		//org.junit.jupiter.api.Test
+@RunWith(SpringRunner.class)   //org.junit.runner.RunWith
+@DirtiesContext   //org.springframework.test.annotation.DirtiesContext
+
+
+
+@Entity  	//javax.persistence.Entity
+@Table 		//javax.persistence.Table
+@Id			//javax.persistence.id
+@Column		//javax.persistence.column
+@GeneratedValue		//javax.persistence.GeneratedValue
+@UpdateTimestamp		//org.hibernate.annotations.UpdateTimestamp
+@CreationTimestamp		//org.hibernate.annotations.CreationTimestamp
+@NamedQueries		//javax.persistence.NamedQueries
+@NamedQuerie		//javax.persistence.NamedQuerie
+
+@OneToOne(by default eager)
+@OneToMany(by default lazy)
+@ManyToOne(by default eager)
+@ManyToMany(by default lazy)-->@JoinColumn @InverseJoinColumn
+
+@Inheritance(strategy=InheritanceType.singleTable)
+@DescriminatorColumn
+@MappedSuperClass
+
+@Enumereted (enum)//use type string not ordinal
+@Embedded(inside parent class)// used to create two diffrent class but to save inside main class
+@Embeddable(Address class)
+
+
+
+

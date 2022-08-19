@@ -1,0 +1,4 @@
+1. create fields of entity class private.
+2. all the autowired member variables or internal member variables
+3. use in memory database for unit test.
+4. move data.sql in test resources
