@@ -26,9 +26,11 @@ public class DemoApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		logger.info(courseRepository.findById(2001L).toString());
-		courseRepository.deleteById(2001L);
+		//courseRepository.deleteById(2001L);
+		courseRepository.addReviewsForCourse();
 		logger.info(courseRepository.save(new Course("Java")).toString());
 		studentRepository.saveStudentWithPassport();
+		courseRepository.removeReviewsForCourse();
 	}
 	
 

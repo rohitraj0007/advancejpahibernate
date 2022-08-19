@@ -1,5 +1,7 @@
 package com.senseofcode.advancejpahibernate.demo.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
@@ -9,8 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.senseofcode.advancejpahibernate.demo.entity.Course;
-
-import ch.qos.logback.classic.LoggerContext;
+import com.senseofcode.advancejpahibernate.demo.entity.Review;
 
 @Repository
 @Transactional
@@ -74,5 +75,20 @@ public class CourseRepository {
 		logger.info("value"+em.createNamedQuery("get_one",Course.class).setParameter("id", 2002L).getResultList().toString());
 		
 	}
-
+	public void addReviewsForCourse() {
+		Course course = findById(2002L);
+		Review review1=new Review("Number 1");
+		Review review2=new Review("Number 2");
+		course.addReview(review1);
+		review1.setCourse(course);
+		course.addReview(review2);
+		review2.setCourse(course);
+		em.persist(review1);
+		em.persist(review2);
+	}
+	public void removeReviewsForCourse() {
+		Course course = findById(2002L);
+		List<Review> review =course.getReviews();
+		em.remove(review.get(0));
+	}
 }

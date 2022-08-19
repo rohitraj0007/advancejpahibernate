@@ -1,7 +1,6 @@
 package com.senseofcode.advancejpahibernate.demo.repository;
 
 import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.senseofcode.advancejpahibernate.demo.DemoApplication;
 import com.senseofcode.advancejpahibernate.demo.entity.Passport;
@@ -45,7 +46,7 @@ public class StudentRepositoryTest {
 	
 
 	@Test
-	@Transactional
+	@Transactional(isolation=Isolation.READ_UNCOMMITTED)//any of 4 levels
 	public void findByIdBidirectional() {
 		Passport passport = em.find(Passport.class, 60001L);
 		logger.info("testing result  :"+passport.toString());

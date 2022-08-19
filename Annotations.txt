@@ -36,6 +36,8 @@
 @Embedded(inside parent class)// used to create two diffrent class but to save inside main class
 @Embeddable(Address class)
 
+@RepositoryRestResource//to expose rest resvices outside
+
 
 
 

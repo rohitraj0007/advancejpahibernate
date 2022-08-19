@@ -1,12 +1,4 @@
-insert into course
-(id,name,last_Update_Date,created_Date)
-values(2001L,'Chemistry',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
-insert into course
-(id,name,last_Update_Date,created_Date)
-values(2002L,'Math',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
-insert into course
-(id,name,last_Update_Date,created_Date)
-values(2003L,'English',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
+
 
 insert into Passport
 (id,number)
@@ -28,14 +20,24 @@ insert into Student
 (id,name,Passport_id)
 values(40003,'Amit',60003);
 
+insert into course
+(id,name,last_Update_Date,created_Date)
+values(2001L,'Chemistry',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
+insert into course
+(id,name,last_Update_Date,created_Date)
+values(2002L,'Math',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
+insert into course
+(id,name,last_Update_Date,created_Date)
+values(2003L,'English',CURRENT_TIMESTAMP(),CURRENT_TIMESTAMP());
 
 
 insert into Review
-(id,rating,description)
-values(80001,'1','Great Course');
+(id,rating,description,course_id)
+values(80001,'1','Great Course',2001L);
 insert into Review
-(id,rating,description)
-values(80002,'2','Good one');
+(id,rating,description,course_id)
+values(80002,'2','Good one',2001L);
 insert into Review
-(id,rating,description)
-values(80003,'3','Average');
+(id,rating,description,course_id)
+values(80003,'3','Average',2003L);
+

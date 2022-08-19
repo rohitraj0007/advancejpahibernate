@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -28,6 +29,9 @@ public class Review {
 	@Column(name="createdDate")
 	@CreationTimestamp
 	private LocalDateTime createdDate;
+	
+	@ManyToOne
+	private Course course;
 	public Review() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -67,6 +71,14 @@ public class Review {
 	}
 	public Long getId() {
 		return id;
+	}
+	
+	
+	public Course getCourse() {
+		return course;
+	}
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 	@Override
 	public String toString() {
